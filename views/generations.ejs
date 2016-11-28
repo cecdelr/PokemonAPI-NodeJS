@@ -3,13 +3,14 @@
 <p>Generations Page</p>
 
 <form action="/list" method="GET">
-	<div class="btn-group" data-toggle="buttons">
+	<div class="btn-group form-group" data-toggle="buttons" id="gen">
 	<% for(var i = 0; i < data["results"].length; i++){ %>
 		<label class="btn btn-primary">
-			<input type="radio" name="radioValue" value="<%= i+1 %>"><%= data["results"][i].name %></button>
+			<input type="radio" name="generation" value="<%= i+1 %>"><%= data["results"][i].name.toUpperCase() %></button>
 		</label>
 	<% } %>
 	</div>
 	<input type="submit">
 </form>
+
 <% include partials/footer %>

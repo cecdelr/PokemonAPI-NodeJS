@@ -5,6 +5,8 @@ var bodyParser = require("body-parser");
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+app.use(bodyParser.json()); // to support JSON bodies
+app.use(bodyParser.urlencoded({extended: true}));
 
 /*------R O U T E S---------*/
 
@@ -19,7 +21,14 @@ app.get("/", function(req, res){
 });
 
 app.get("/list", function(req, res){
-	res.send("list page!");
+	var selectedGen = req.query.generation;
+	var url = "http://pokeapi.co/api/v2/generation/" + selectedGen;
+	request(url, function(err, resp, body){
+		if(!err && resp.statusCode == 200){
+			var data = JSON.parse(body);
+			res.render("pkmn-list", {data: data});
+		}
+	});
 });
 
 app.get("/info", function(req, res){
