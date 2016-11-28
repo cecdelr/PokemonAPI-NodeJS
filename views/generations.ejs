@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<p>Generations Page</p>
+
+<form action="/list" method="GET">
+	<div class="btn-group" data-toggle="buttons">
+	<% for(var i = 0; i < data["results"].length; i++){ %>
+		<label class="btn btn-primary">
+			<input type="radio" name="radioValue" value="<%= i+1 %>"><%= data["results"][i].name %></button>
+		</label>
+	<% } %>
+	</div>
+	<input type="submit">
+</form>
+<% include partials/footer %>
