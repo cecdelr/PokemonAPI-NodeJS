@@ -3,7 +3,7 @@
 <p>Pokemon List Page</p>
 
 <ul>
-	<% data["pokemon_species"].forEach(function(pokemon){ %>
+	<% data["pokemon_species"].sort().forEach(function(pokemon){ %>
 
 		<li><%= pokemon.name %></li>
 

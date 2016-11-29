@@ -2,15 +2,20 @@
 
 <p>Generations Page</p>
 
-<form action="/list" method="GET">
-	<div class="btn-group form-group" data-toggle="buttons" id="gen">
-	<% for(var i = 0; i < data["results"].length; i++){ %>
-		<label class="btn btn-primary">
-			<input type="radio" name="generation" value="<%= i+1 %>"><%= data["results"][i].name.toUpperCase() %></button>
-		</label>
-	<% } %>
-	</div>
-	<input type="submit">
-</form>
+<div id="genForm">
+	<form action="/list" method="GET">
+		<div class="form-group" data-toggle="buttons" id="gen">
+		<% for(var i = 0; i < data["results"].length; i++){ %>
+				<label class="btn btn-primary">
+					<input class="form-control" type="radio" name="generation" value="<%= i+1 %>"><%= data["results"][i].name.toUpperCase() %></button>
+				</label>
 
+		<% } %>
+		</div>
+
+		<div class="form-group">
+			<button class="btn btn-lg btn-primary btn-block">Submit!</button>
+		</div>
+	</form>
+</div>
 <% include partials/footer %>

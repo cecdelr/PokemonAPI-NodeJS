@@ -32,7 +32,7 @@ app.get("/list", function(req, res){
 });
 
 app.get("/info", function(req, res){
-	res.send("info page!");
+	res.render("info");
 });
 
 app.listen("3000", function(){
